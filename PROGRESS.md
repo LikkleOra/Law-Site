@@ -9,7 +9,7 @@ This document tracks the development progress of the Digital Law Office Platform
   - [x] Initialize Convex Backend
 - [x] **Authentication (Clerk)**
   - [x] Setup Clerk provider and user sync
-  - [ ] Configure role-based access control
+  - [x] Configure role-based access control
 - [x] **Backend Schemas (Convex)**
   - [x] All schemas defined in `convex/schema.ts`
 - [x] **Client Portal**
@@ -17,14 +17,14 @@ This document tracks the development progress of the Digital Law Office Platform
   - [x] View case progress
   - [x] View and upload documents
 - [ ] **Appointment Scheduling**
-  - [ ] Scheduling interface
+  - [x] Scheduling interface
   - [ ] Google Calendar integration
 - [ ] **Notifications System**
   - [ ] Email notifications (SendGrid)
   - [ ] SMS/WhatsApp notifications (Twilio)
-- [ ] **Feedback Form**
-  - [ ] Form component
-  - [ ] Submission to Convex
+- [x] **Feedback Form**
+  - [x] Form component
+  - [x] Submission to Convex
 
 ## Phase 2 – Marketing & Visibility
 

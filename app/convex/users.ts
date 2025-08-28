@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const getOrCreateUser = mutation({
@@ -25,5 +25,34 @@ export const getOrCreateUser = mutation({
     });
 
     return userId;
+  },
+});
+
+export const getMe = query({
+  args: {},
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      return null;
+    }
+    const user = await ctx.db
+      .query("users")
+      .withIndex("by_clerk_id", (q) =>
+        q.eq("clerkId", identity.subject)
+      )
+      .unique();
+
+    return user;
+  },
+});
+
+export const getLawyers = query({
+  args: {},
+  handler: async (ctx) => {
+    const lawyers = await ctx.db
+      .query("users")
+      .filter((q) => q.eq(q.field("role"), "lawyer"))
+      .collect();
+    return lawyers;
   },
 });
