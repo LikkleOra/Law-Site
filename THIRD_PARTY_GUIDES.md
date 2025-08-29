@@ -62,3 +62,25 @@ This document contains setup guides for the third-party services used in this pr
     SENDGRID_API_KEY=YOUR_API_KEY_HERE
     SENDER_EMAIL=your-verified-email@example.com
     ```
+
+---
+
+## Twilio API (for SMS/WhatsApp Notifications)
+
+### Step 1: Create a Twilio Account
+1.  Sign up for an account at [Twilio](https://www.twilio.com/try-twilio).
+
+### Step 2: Get a Twilio Phone Number
+1.  Go to your Twilio Console and click on **"Phone Numbers"**.
+2.  Click **"Buy a Number"** and choose a number with SMS or WhatsApp capabilities.
+
+### Step 3: Find Your Credentials
+1.  In your Twilio Console, you will find your **Account SID** and **Auth Token** on the dashboard.
+
+### Step 4: Store Your Credentials
+1.  Add your Account SID, Auth Token, and Twilio phone number to your `app/.env.local` file:
+    ```
+    TWILIO_ACCOUNT_SID=YOUR_ACCOUNT_SID_HERE
+    TWILIO_AUTH_TOKEN=YOUR_AUTH_TOKEN_HERE
+    TWILIO_PHONE_NUMBER=YOUR_TWILIO_PHONE_NUMBER_HERE
+    ```

@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.31.6",
+    "@sendgrid/mail": "^8.1.5",
     "next": "15.5.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "twilio": "^5.8.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

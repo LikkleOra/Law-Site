@@ -1,4 +1,4 @@
-# Project Progress: Digital Law Office Platform
+kind# Project Progress: Digital Law Office Platform
 
 This document tracks the development progress of the Digital Law Office Platform.
 
@@ -19,9 +19,9 @@ This document tracks the development progress of the Digital Law Office Platform
 - [ ] **Appointment Scheduling**
   - [x] Scheduling interface
   - [ ] Google Calendar integration
-- [ ] **Notifications System**
-  - [ ] Email notifications (SendGrid)
-  - [ ] SMS/WhatsApp notifications (Twilio)
+- [x] **Notifications System**
+  - [x] Email notifications (SendGrid)
+  - [x] SMS/WhatsApp notifications (Twilio)
 - [x] **Feedback Form**
   - [x] Form component
   - [x] Submission to Convex
