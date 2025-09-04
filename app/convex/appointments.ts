@@ -32,6 +32,23 @@ export const createAppointment = mutation({
   },
 });
 
+import { QueryCtx } from "convex/server";
+import { Id } from "./_generated/dataModel";
+
+async function _getAppointmentsForClient(ctx: QueryCtx, userId: Id<"users">) {
+  return await ctx.db
+    .query("appointments")
+    .withIndex("by_clientId", (q) => q.eq("clientId", userId))
+    .collect();
+}
+
+async function _getAppointmentsForLawyer(ctx: QueryCtx, userId: Id<"users">) {
+  return await ctx.db
+    .query("appointments")
+    .withIndex("by_lawyerId", (q) => q.eq("lawyerId", userId))
+    .collect();
+}
+
 export const getAppointmentsForCurrentUser = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -49,17 +66,11 @@ export const getAppointmentsForCurrentUser = query({
     }
 
     if (user.role === "client") {
-      return await ctx.db
-        .query("appointments")
-        .withIndex("by_clientId", (q) => q.eq("clientId", user._id))
-        .collect();
+      return _getAppointmentsForClient(ctx, user._id);
     }
 
     if (user.role === "lawyer") {
-      return await ctx.db
-        .query("appointments")
-        .withIndex("by_lawyerId", (q) => q.eq("lawyerId", user._id))
-        .collect();
+      return _getAppointmentsForLawyer(ctx, user._id);
     }
 
     return [];
